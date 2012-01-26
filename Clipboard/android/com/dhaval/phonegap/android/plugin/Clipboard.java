@@ -35,19 +35,6 @@ public class Clipboard extends Plugin {
 				CharSequence cs = data.get(0).toString();
 				clipboard.setText(cs);
 
-				this.ctx.runOnUiThread(new Runnable() {
-					
-					@Override
-					public void run() {
-						CharSequence text = "Content copied to clipboard";
-						int duration = Toast.LENGTH_SHORT;
-
-						Toast toast = Toast.makeText(ctx, text, duration);
-						toast.show();
-					}
-				});
-				
-				
 				result = new PluginResult(Status.OK, "text copied");
 			} catch (Exception e) {
 				result = new PluginResult(Status.ERROR, "error while copying - " + e.getMessage());
